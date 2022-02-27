@@ -14,9 +14,6 @@ f4fce3 --limeLight;
   --gray-medium: #495057;
   --gray-light: #ced4da;
 }
-body {
-  background-color: red !important;
-}
 
 * {
   margin: 0;
