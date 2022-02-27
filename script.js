@@ -116,6 +116,7 @@ yearBox.addEventListener("click", function (e) {
 });
 
 monthBox.addEventListener("click", function (e) {
+  if(!e.target.classList.contains('month')) return;
   selectedMonth = months.find((item) => item.name === e.target.innerText);
   ageSelectorHandler();
   HideDomElement(this);
@@ -123,6 +124,7 @@ monthBox.addEventListener("click", function (e) {
 });
 
 dateBox.addEventListener("click", function (e) {
+  if(!e.target.classList.contains('date')) return;
   selectedDate = e.target.innerText;
   ageSelectorHandler();
   enableCalculateButton();
@@ -228,15 +230,16 @@ function calculateAndRender(e) {
   yearsTab.classList.add("active-tab");
   activeTab = yearsTab;
   displayTabbedValue();
-  startCountingSeconds();
-  console.log("continue clicked");
+  // console.log("continue clicked");
   tabContent.scrollIntoView();
 }
 
 tabs.addEventListener("click", function (e) {
+  console.log('tabs Clicked');
   removeActiveTab();
   e.target.classList.add("active-tab");
   activeTab = e.target;
+  displayTabbedValue();
 });
 
 function removeActiveTab() {
@@ -269,9 +272,3 @@ function disableCalculateButton() {
   calculateButton.classList.remove("calculate-active");
 }
 
-function startCountingSeconds() {
-  ultimateResult.seconds += 1;
-  if (activeTab.innerText === "Seconds")
-    tabContent.innerText = ultimateResult.seconds;
-  setTimeout(this, 1000);
-}
