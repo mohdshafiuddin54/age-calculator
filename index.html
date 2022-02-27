@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Age Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Quicksand:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <h1>The Age Calculator</h1>
+    <h2 class="subtitle">
+        Calculate your age in every possible Time metric
+    </h2>
+    <div class="age-word">
+        <h2>Simply Enter Your DoB in Numbers Here</h2>
+        <form class="age-inputs">
+            <input type="number" max = 30 min = 1 class = 'inputDate' required placeholder="Date" >
+            <input type="number" max = 12 min = 1 class = 'inputMonth' required placeholder="Mon">
+            <input type="number" min = 1900 class = 'inputYear' required placeholder="Year">
+            <button>Submit</button>
+        </form>
+
+    </div>
+    <div class="or">
+        or
+    </div>
+    <div class="age-selector">
+      <div class="age-selector-heading">
+        <h2>Here Mate...Select your Date Of Birth</h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </div>
+      <div class="container hidden">
+        <div class="years hidden">
+          <!-- <div class="year">2000</div> -->
+        </div>
+        <div class="months hidden">
+          <!-- <div class="month">January</div> -->
+        </div>
+        <div class="dates hidden">
+          <!-- <div class="date">22</div> -->
+        </div>
+        <div class="result">
+          <span class="info">Selected Date:</span>
+          <span class="selected-date">DD MM YYYY</span>
+        </div>
+        <button class="calculate" disabled>
+            Calculate Age
+        </button>
+      </div>
+    </div>
+    <div class="reset-and-display">
+        <button class="reset">
+            Reset Date
+        </button>
+
+    </div>
+    <div class="tabbed">
+        <h2 class = 'hidden'>The age from * is :</h2>
+      <div class="tabs">
+        <div class="tab">Years</div>
+        <div class="tab">Months</div>
+        <div class="tab">Weeks</div>
+        <div class="tab">Days</div>
+        <div class="tab">Hours</div>
+        <div class="tab">Minutes</div>
+        <div class="tab">Seconds</div>
+      </div>
+      <div class="tab-content">No Date Selected Yet...</div>
+    </div>
+    <!-- <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script> -->
+    <script src="./script.js"></script>
+  </body>
+</html>
