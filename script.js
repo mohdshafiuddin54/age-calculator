@@ -201,6 +201,8 @@ function resetFunction(e) {
   selectedDate = null;
   selectedMonth = null;
   selectedYear = null;
+  monthBox.innerHTML = null;
+  dateBox.innerHTML = null;
   HideDomElement(yearBox);
   HideDomElement(monthBox);
   HideDomElement(dateBox);
@@ -218,15 +220,17 @@ function calculateAndRender(e) {
     displayTabbedValue("error");
     removeActiveTab();
   }
+  
   const milliSecs = Date.now() - theDate;
   ultimateResult.days = Math.floor(milliSecs / (1000 * 60 * 60 * 24));
   ultimateResult.months = Math.floor(ultimateResult.days / 31);
   ultimateResult.years = Math.floor(ultimateResult.days / 365);
-  ultimateResult.weeks = ultimateResult.years * 52;
+  ultimateResult.weeks = Math.floor(ultimateResult.days / 7);
   ultimateResult.hours = ultimateResult.days * 24;
   ultimateResult.minutes = ultimateResult.hours * 60;
   ultimateResult.seconds = ultimateResult.minutes * 60;
   //   console.log({ days, years, weeks, hours, minutes, seconds });
+  removeActiveTab();
   yearsTab.classList.add("active-tab");
   activeTab = yearsTab;
   displayTabbedValue();
@@ -235,7 +239,7 @@ function calculateAndRender(e) {
 }
 
 tabs.addEventListener("click", function (e) {
-  console.log('tabs Clicked');
+  if(!e.target.classList.contains('tab')) return;
   removeActiveTab();
   e.target.classList.add("active-tab");
   activeTab = e.target;
