@@ -96,13 +96,14 @@ yearBox.addEventListener("click", function (e) {
   if (e.target.innerText === "Prev" || e.target.innerText === "Next") {
     return;
   }
+  if(!e.target.classList.contains('year')) return;
   selectedYear = e.target.innerText;
   HideDomElement(this);
   ageSelectorHandler();
-  console.log({ selectedYear });
 });
 
 yearBox.addEventListener("click", function (e) {
+  if(!e.target.classList.contains('year')) return;
   const action = e.target.innerText;
   if (action === "Prev") {
     currentBeginYear -= 18;
